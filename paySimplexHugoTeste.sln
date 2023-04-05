@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paySimplexHugoTeste", "paySimplexHugoTeste\paySimplexHugoTeste.csproj", "{031E49C5-B618-478B-BCC4-24A318437F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{C8D430B1-AEC9-4900-AE70-8C2F937D3154}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{031E49C5-B618-478B-BCC4-24A318437F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031E49C5-B618-478B-BCC4-24A318437F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031E49C5-B618-478B-BCC4-24A318437F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031E49C5-B618-478B-BCC4-24A318437F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8D430B1-AEC9-4900-AE70-8C2F937D3154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8D430B1-AEC9-4900-AE70-8C2F937D3154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8D430B1-AEC9-4900-AE70-8C2F937D3154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8D430B1-AEC9-4900-AE70-8C2F937D3154}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B7231C9-62F0-4D92-914F-67FC0D70A397}
+	EndGlobalSection
+EndGlobal
