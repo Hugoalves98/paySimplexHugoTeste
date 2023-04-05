@@ -15,5 +15,17 @@ namespace Infra.Repository
         public HistoricoTarefaRepository(Context context) : base(context)
         {
         }
-    }
+
+		public HistoricoTarefa? BuscaUltimaTarefaPorId(int tarefaId)
+		{
+			try
+			{
+				return _context.HistoricoTarefas.Where(x => x.TarefaId == tarefaId && x.DataCriacao == _context.HistoricoTarefas.Max(x => x.DataCriacao)).FirstOrDefault();
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
+	}
 }

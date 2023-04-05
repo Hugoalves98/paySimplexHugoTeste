@@ -97,7 +97,7 @@ namespace Infra.Services
 
 				Update(tarefaVerification);
 
-				HistoricoTarefa? historicoVerification = _historicoService.Buscar(x => x.TarefaId == tarefaVerification.Id);
+				HistoricoTarefa? historicoVerification = _historicoService.BuscaUltimaTarefaPorId(tarefaVerification.Id.Value);
 
 				if (historicoVerification == null)
 					throw new Exception("Esta tarefa não tem histórico");
@@ -105,35 +105,7 @@ namespace Infra.Services
 				if (historicoVerification.DataFinalizada != null)
 					throw new Exception("Esta tarefa está finalizada, proibido alterar");
 
-				if (tarefaVerification.EstadoTarefa == EstadoTarefa.Agendada)
-				{
-					HistoricoTarefa historico = new()
-					{
-						TarefaId = (int)tarefaVerification.Id,
-						UsuarioId = tarefaVerification.UsuarioId,
-						DataAgendamento = tarefaVerification.DataAgendamento,
-						DuracaoEstimada = tarefaVerification.DuracaoEstimada,
-						EstadoTarefa = tarefaVerification.EstadoTarefa
-
-					};
-
-					_historicoService.Insert(historico);
-				}
-				else if (tarefaVerification.EstadoTarefa == EstadoTarefa.Andamento)
-				{
-					HistoricoTarefa historico = new()
-					{
-						TarefaId = (int)tarefaVerification.Id,
-						UsuarioId = tarefaVerification.UsuarioId,
-						DataAgendamento = tarefaVerification.DataAgendamento,
-						DuracaoEstimada = tarefaVerification.DuracaoEstimada,
-						EstadoTarefa = tarefaVerification.EstadoTarefa
-
-					};
-
-					_historicoService.Insert(historico);
-				}
-				else if (tarefaVerification.EstadoTarefa == EstadoTarefa.Finalizada)
+				if (tarefaVerification.EstadoTarefa == EstadoTarefa.Finalizada)
 				{
 					HistoricoTarefa historico = new()
 					{
@@ -141,6 +113,19 @@ namespace Infra.Services
 						UsuarioId = tarefaVerification.UsuarioId,
 						DataAgendamento = tarefaVerification.DataAgendamento,
 						DataFinalizada = tarefaVerification.DataFinalizada,
+						DuracaoEstimada = tarefaVerification.DuracaoEstimada,
+						EstadoTarefa = tarefaVerification.EstadoTarefa
+					};
+
+					_historicoService.Insert(historico);
+				}
+				else 
+				{
+					HistoricoTarefa historico = new()
+					{
+						TarefaId = (int)tarefaVerification.Id,
+						UsuarioId = tarefaVerification.UsuarioId,
+						DataAgendamento = tarefaVerification.DataAgendamento,
 						DuracaoEstimada = tarefaVerification.DuracaoEstimada,
 						EstadoTarefa = tarefaVerification.EstadoTarefa
 					};

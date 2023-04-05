@@ -9,5 +9,7 @@ namespace Infra.Interfaces
 {
     public interface IHistoricoTarefaRepository : IRepository<HistoricoTarefa>
     {
-    }
+		public HistoricoTarefa? BuscaUltimaTarefaPorId(int tarefaId);
+
+	}
 }

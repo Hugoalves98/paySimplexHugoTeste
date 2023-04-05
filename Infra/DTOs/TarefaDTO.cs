@@ -20,8 +20,6 @@ namespace Infra.DTOs
         [Required]
         public DateTime? DataAgendamento { get; set; } 
 
-        public DateTime? DataFinalizada { get; set; } 
-
         [Required]
         public double DuracaoEstimada { get; set; } 
 
