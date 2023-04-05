@@ -113,7 +113,7 @@ namespace paySimplexHugoTeste.Controllers
 		/// <returns>Objeto result</returns>
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpGet("BuscarTarefaId")]
-		public IActionResult ListarTarefa(int id)
+		public IActionResult ListarTarefaPorId(int tarefaId)
 		{
 			try
 			{
@@ -121,7 +121,7 @@ namespace paySimplexHugoTeste.Controllers
 				{
 					Code = 1,
 					Message = "Busca realizada",
-					Obj = _tarefaService.BuscarPorId(id)
+					Obj = _tarefaService.ListarTarefaPorId(tarefaId)
 				};
 
 				return Ok(result);

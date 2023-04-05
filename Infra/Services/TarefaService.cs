@@ -140,5 +140,41 @@ namespace Infra.Services
 				throw;
 			}
 		}
+
+		public object? ListarTarefaPorId(int tarefaId)
+		{
+			try
+			{
+				Tarefa? tarefa = BuscarPorId(tarefaId);
+
+				List<HistoricoTarefa>? historico = _historicoService.BuscarTodos(x => x.TarefaId == tarefaId);
+
+				if (historico != null && historico.Where(x => x.DataFinalizada != null).Any())
+				{
+					try
+					{
+
+						var andamento = historico.First(x => x.EstadoTarefa == EstadoTarefa.Andamento && x.DataCriacao == historico.Where(y => y.EstadoTarefa == EstadoTarefa.Andamento).Min(x => x.DataCriacao)).DataCriacao;
+
+						var finalizada = historico.First(x => x.DataFinalizada != null).DataCriacao;
+
+						TimeSpan? tempogasto = finalizada - andamento;
+
+						return new { Tarefa = tarefa, TempoGasto = tempogasto };
+
+					}
+					catch
+					{
+
+					}
+				}
+
+				return tarefa;
+			}
+			catch
+			{
+				throw;
+			}
+		}
 	}
 }

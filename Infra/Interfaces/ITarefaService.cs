@@ -7,5 +7,7 @@ namespace Infra.Interfaces
 		public Tarefa? AddTarefa(Tarefa tarefa);
 
 		public Tarefa AtualizarTarefa(Tarefa tarefa);
+
+		public Tarefa ListarTarefaPorId(int tarefaId);
 	}
 }
