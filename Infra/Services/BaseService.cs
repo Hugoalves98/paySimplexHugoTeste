@@ -20,11 +20,11 @@ namespace Infra.Services
 
         public bool Delete(TEntity obj) => _repository.Delete(obj);
 
-        public TEntity? Busca(Expression<Func<TEntity, bool>> where) => _repository.Buscar(where);
+        public TEntity? Buscar(Expression<Func<TEntity, bool>> where) => _repository.Buscar(where);
 
-        public List<TEntity>? BuscaTodos(Expression<Func<TEntity, bool>> where) => _repository.BuscarTodos(where);
+        public List<TEntity>? BuscarTodos(Expression<Func<TEntity, bool>> where) => _repository.BuscarTodos(where);
 
-        public TEntity? BuscaPorId(int id) => _repository.BuscarPorId(id);
+        public TEntity? BuscarPorId(int id) => _repository.BuscarPorId(id);
 
         public TEntity? Insert(TEntity obj) => _repository.Create(obj);
 

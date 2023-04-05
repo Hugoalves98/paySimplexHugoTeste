@@ -10,10 +10,10 @@ namespace Infra.Interfaces
 
         bool Delete(TEntity obj);
 
-        TEntity? Busca(Expression<Func<TEntity, bool>> where);
+        TEntity? Buscar(Expression<Func<TEntity, bool>> where);
         
-        List<TEntity>? BuscaTodos(Expression<Func<TEntity, bool>> where);
+        List<TEntity>? BuscarTodos(Expression<Func<TEntity, bool>> where);
 
-        TEntity? BuscaPorId(int id);
+        TEntity? BuscarPorId(int id);
     }
 }

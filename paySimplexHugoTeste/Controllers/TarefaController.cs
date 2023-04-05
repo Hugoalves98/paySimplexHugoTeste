@@ -49,5 +49,33 @@ namespace paySimplexHugoTeste.Controllers
 				return BadRequest(result);
 			}
 		}
+
+		//Necessário passar o ID da tarefa
+		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
+		[HttpPost("AtualizarTarefa")]
+		public IActionResult AtualizarTarefa(TarefaDTO tarefa)
+		{
+			try
+			{
+				Result result = new Result
+				{
+					Code = 1,
+					Message = "Tarefa atualizada com sucesso.",
+					Obj = _tarefaService.AtualizarTarefa(_mapper.Map<Tarefa>(tarefa))
+				};
+
+				return Ok(result);
+			}
+			catch (Exception ex)
+			{
+				Result result = new Result
+				{
+					Code = 0,
+					Message = ex.Message
+				};
+
+				return BadRequest(result);
+			}
+		}
 	}
 }

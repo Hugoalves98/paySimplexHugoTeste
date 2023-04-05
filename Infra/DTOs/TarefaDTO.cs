@@ -10,6 +10,9 @@ namespace Infra.DTOs
 {
     public class TarefaDTO
     {
+
+        public int? Id { get; set; } = null;
+
         [Required]
         public string? Nome { get; set; }
 
