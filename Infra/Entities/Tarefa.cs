@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infra.Entities
 {
-    public class TarefaDTO : BaseEntity
+    public class Tarefa : BaseEntity
     {
         [Required]
         public string? Nome { get; set; }

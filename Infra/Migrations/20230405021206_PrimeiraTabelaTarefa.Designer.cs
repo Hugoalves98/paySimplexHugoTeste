@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infra.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230405020317_PrimeiraTabelaTarefa")]
+    [Migration("20230405021206_PrimeiraTabelaTarefa")]
     partial class PrimeiraTabelaTarefa
     {
         /// <inheritdoc />

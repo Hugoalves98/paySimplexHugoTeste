@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infra.Interfaces
 {
-    public interface ITarefaRepository : IRepository<TarefaDTO>
+    public interface ITarefaRepository : IRepository<Tarefa>
     {
     }
 }

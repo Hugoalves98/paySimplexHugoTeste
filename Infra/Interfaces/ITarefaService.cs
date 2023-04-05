@@ -2,7 +2,7 @@
 
 namespace Infra.Interfaces
 {
-    public interface ITarefaService : IBaseService<TarefaDTO>
+    public interface ITarefaService : IBaseService<Tarefa>
     {
     }
 }
