@@ -25,7 +25,7 @@ namespace paySimplexHugoTeste.Controllers
 
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpPost("AddTarefa")]
-		public IActionResult AddTarefa([FromBody] TarefaDTO tarefa)
+		public IActionResult AddTarefa(TarefaInsertDTO tarefa)
 		{
 			try
 			{
@@ -62,6 +62,87 @@ namespace paySimplexHugoTeste.Controllers
 					Code = 1,
 					Message = "Tarefa atualizada com sucesso.",
 					Obj = _tarefaService.AtualizarTarefa(_mapper.Map<Tarefa>(tarefa))
+				};
+
+				return Ok(result);
+			}
+			catch (Exception ex)
+			{
+				Result result = new Result
+				{
+					Code = 0,
+					Message = ex.Message
+				};
+
+				return BadRequest(result);
+			}
+		}
+
+		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
+		[HttpGet("BuscarTarefaId")]
+		public IActionResult ListarTarefa(int id)
+		{
+			try
+			{
+				Result result = new Result
+				{
+					Code = 1,
+					Message = "Busca realizada",
+					Obj = _tarefaService.BuscarPorId(id)
+				};
+
+				return Ok(result);
+			}
+			catch (Exception ex)
+			{
+				Result result = new Result
+				{
+					Code = 0,
+					Message = ex.Message
+				};
+
+				return BadRequest(result);
+			}
+		}
+
+		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
+		[HttpGet("ListarTarefas")]
+		public IActionResult ListarTarefas()
+		{
+			try
+			{
+				Result result = new Result
+				{
+					Code = 1,
+					Message = "Tarefas listadas com sucesso",
+					Obj = _tarefaService.BuscarTodos(x => x.Deletado != true)
+				};
+
+				return Ok(result);
+			}
+			catch (Exception ex)
+			{
+				Result result = new Result
+				{
+					Code = 0,
+					Message = ex.Message
+				};
+
+				return BadRequest(result);
+			}
+		}
+
+		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
+		[HttpGet("ListarTarefasPorUsuario")]
+		public IActionResult ListarTarefasPorUsuario(int usuarioId)
+		{
+			try
+			{
+				Result result = new Result
+				{
+					Code = 1,
+					Message = "Tarefa listada com sucesso",
+					Obj = _tarefaService.BuscarTodos(x => x.UsuarioId == usuarioId)
 				};
 
 				return Ok(result);

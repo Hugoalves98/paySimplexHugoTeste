@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Infra.DTOs
 {
-    public class TarefaDTO
+    public class TarefaInsertDTO
     {
 
-        public int? Id { get; set; } = null;
+        public int? UsuarioId { get; set; } = null;
 
         [Required]
         public string? Nome { get; set; }
@@ -19,10 +19,10 @@ namespace Infra.DTOs
         [Required]
         public DateTime? DataAgendamento { get; set; } 
 
-        [Required]
-        public DateTime? DataFinalizacao { get; set; } 
+		[Required]
+		public DateTime? DataFinalizacao { get; set; }
 
-        [Required]
+		[Required]
         public string DuracaoEstimada { get; set; } = string.Empty;
 
         [Required]

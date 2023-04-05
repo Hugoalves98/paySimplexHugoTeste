@@ -16,7 +16,7 @@ namespace Infra.Services
 		{
 			try
 			{
-				if (tarefa.Id != null)
+				if (tarefa.Id == null)
 					throw new Exception("Id da tarefa obrigatório");
 
 				Tarefa? tarefaVerification = Buscar(x => x.Id == tarefa.Id);
