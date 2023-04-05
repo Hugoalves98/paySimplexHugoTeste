@@ -36,12 +36,12 @@ namespace Infra.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TarefaId = table.Column<int>(type: "int", nullable: false),
+                    UsuarioId = table.Column<int>(type: "int", nullable: false),
                     DataAgendamento = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataFinalizada = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DuracaoEstimada = table.Column<double>(type: "float", nullable: false),
                     EstadoTarefa = table.Column<int>(type: "int", nullable: false),
-					UsuarioId = table.Column<int>(type: "int", nullable: false),
-					DataAtualizacao = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DataAtualizacao = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Deletado = table.Column<bool>(type: "bit", nullable: false)
                 },

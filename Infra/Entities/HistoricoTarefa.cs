@@ -13,6 +13,12 @@ namespace Infra.Entities
 		public virtual Tarefa? Tarefa { get; set; }
 
 		[Required]
+		[ForeignKey("UsuarioId")]
+		public int UsuarioId { get; set; }
+
+		public virtual Usuario? Usuario { get; set; }
+
+		[Required]
         public DateTime? DataAgendamento { get; set; } 
 
 		public DateTime? DataFinalizada { get; set; } 
@@ -22,11 +28,5 @@ namespace Infra.Entities
 
         [Required]
         public EstadoTarefa EstadoTarefa { get; set; }
-
-		[Required]
-		[ForeignKey("UsuarioId")]
-		public int UsuarioId { get; set; }
-
-		public virtual Usuario? Usuario { get; set; }
-	}
+    }
 }
