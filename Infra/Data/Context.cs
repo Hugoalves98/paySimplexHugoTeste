@@ -11,5 +11,7 @@ namespace Infra.Data
         }
 
 		public DbSet<Tarefa> Tarefas { get; set; }
+
+		public DbSet<Usuario> Usuarios { get; set; }
 	}
 }

@@ -1,10 +1,6 @@
 ﻿using Infra.Entities.Enums;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infra.Entities
 {
@@ -21,5 +17,11 @@ namespace Infra.Entities
 
         [Required]
         public EstadoTarefa EstadoTarefa { get; set; } = 0;
+
+		[Required]
+		[ForeignKey("UsuarioId")]
+        public int UsuarioId { get; set; }
+
+        public virtual Usuario? Usuario { get; set;}
     }
 }
