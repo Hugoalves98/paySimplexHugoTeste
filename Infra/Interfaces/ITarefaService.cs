@@ -8,6 +8,6 @@ namespace Infra.Interfaces
 
 		public Tarefa AtualizarTarefa(Tarefa tarefa);
 
-		public Tarefa ListarTarefaPorId(int tarefaId);
+		public object ListarTarefaPorId(int tarefaId);
 	}
 }

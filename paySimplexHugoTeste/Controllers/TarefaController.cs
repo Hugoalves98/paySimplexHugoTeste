@@ -108,6 +108,7 @@ namespace paySimplexHugoTeste.Controllers
 		/// <remarks>
 		/// 
 		///    Necessário passar o ID da tarefa
+		///    Nesse método é buscado a primeira vez que entrou andamento na tabela histórico e quando entrou finalizado, a partir dai é feito uma subtração entre a data de criação no banco de cada um para verificar quanto tempo a tarefa ficou em andamento, caso não tenha sido finalizada ainda, retornará a tarefa com seus dados atuais somente
 		///    
 		/// </remarks>
 		/// <returns>Objeto result</returns>
