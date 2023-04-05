@@ -7,6 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace paySimplexHugoTeste.Controllers
 {
+	/// <summary>Controller para gerenciar Usuários</summary>
+	/// <response code="200">O processamento ocorreu corretamente</response>
+	/// <response code="400">Ocorreu um erro no processamento</response>
+	/// <response code="401">Autorização do token inválido</response>
+	/// <response code="420">Usuário ou senha inválido</response>
+	/// <response code="500">Ocorreu um erro inesperado</response>
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 	[ProducesResponseType(420)]
@@ -23,6 +29,11 @@ namespace paySimplexHugoTeste.Controllers
 			_usuarioService = usuarioService;
 		}
 
+		/// <summary>Criar um usuário</summary>
+		/// <remarks>
+		///    
+		/// </remarks>
+		/// <returns>Objeto result</returns>
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpPost("AddUsuario")]
 		public IActionResult AddUsuario([FromBody] UsuarioDTO usuario)

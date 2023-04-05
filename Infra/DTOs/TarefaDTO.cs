@@ -12,6 +12,8 @@ namespace Infra.DTOs
     {
         public int? Id { get; set; } = null;
 
+        public int? UsuarioId { get; set; } = null;
+
         [Required]
         public string? Nome { get; set; }
 

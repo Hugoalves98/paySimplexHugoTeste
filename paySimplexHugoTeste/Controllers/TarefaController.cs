@@ -7,6 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace paySimplexHugoTeste.Controllers
 {
+	/// <summary>Controller para gerenciar Tarefas</summary>
+	/// <response code="200">O processamento ocorreu corretamente</response>
+	/// <response code="400">Ocorreu um erro no processamento</response>
+	/// <response code="401">Autorização do token inválido</response>
+	/// <response code="420">Usuário ou senha inválido</response>
+	/// <response code="500">Ocorreu um erro inesperado</response>
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 	[ProducesResponseType(420)]
@@ -23,8 +29,15 @@ namespace paySimplexHugoTeste.Controllers
 			_tarefaService = tarefaService;
 		}
 
-		/// <summary>Controller para gerenciar CadastroTarefa</summary>
-		// Para adicionar um ficheiro precisa transformar a imagem em base64, segue o site https://www.base64decode.org/
+		/// <summary>Cria uma nova tarefa</summary>
+		/// <remarks>
+		/// 
+		///		Uso do Ficheiro:
+		///     Para adicionar um ficheiro precisa transformar a imagem em base64, segue o site https://www.base64decode.org/
+		///     Ou envie com string vazia "ficheiro": ""
+		///     
+		/// </remarks>
+		/// <returns>Objeto result</returns>
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpPost("AddTarefa")]
 		public IActionResult AddTarefa(TarefaInsertDTO tarefa)
@@ -52,7 +65,18 @@ namespace paySimplexHugoTeste.Controllers
 			}
 		}
 
-		//Necessário passar o ID da tarefa
+		/// <summary>Atualizar uma tarefa</summary>
+		/// <remarks>
+		/// 
+		///    Necessário passar o ID da tarefa
+		///    Necessário passar o mesmo nome da tarefa, a menos que deseje mudá-lo
+		///    Necessário passar o ID do usuário responsável, a menos que deseje mudá-lo
+		///    Necessário manter a primeira DATA de agendamento da tarefa, a menos que deseje mudá-la
+		///    Necessário passar null a data de finalizada, exemplo: "dataFinalizada": null
+		///    A data de finalizada será criada automaticamente quando for enviado o número 2 no EstadoTarefa
+		///    
+		/// </remarks>
+		/// <returns>Objeto result</returns>
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpPost("AtualizarTarefa")]
 		public IActionResult AtualizarTarefa(TarefaDTO tarefa)
@@ -80,6 +104,13 @@ namespace paySimplexHugoTeste.Controllers
 			}
 		}
 
+		/// <summary>Listar uma tarefa específica para consultar seu estado atual</summary>
+		/// <remarks>
+		/// 
+		///    Necessário passar o ID da tarefa
+		///    
+		/// </remarks>
+		/// <returns>Objeto result</returns>
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpGet("BuscarTarefaId")]
 		public IActionResult ListarTarefa(int id)
@@ -107,6 +138,11 @@ namespace paySimplexHugoTeste.Controllers
 			}
 		}
 
+		/// <summary>Listar todas as tarefas</summary>
+		/// <remarks>
+		///    
+		/// </remarks>
+		/// <returns>Objeto result</returns>
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpGet("ListarTarefas")]
 		public IActionResult ListarTarefas()
@@ -134,6 +170,13 @@ namespace paySimplexHugoTeste.Controllers
 			}
 		}
 
+		/// <summary>Listar todas as tarefas de um usuário</summary>
+		/// <remarks>
+		/// 
+		///    Necessário passar o ID do usuário
+		///    
+		/// </remarks>
+		/// <returns>Objeto result</returns>
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpGet("ListarTarefasPorUsuario")]
 		public IActionResult ListarTarefasPorUsuario(int usuarioId)
