@@ -10,10 +10,12 @@ namespace Infra.DTOs
 {
     public class TarefaInsertDTO
     {
-
+        [Required]
         public int? UsuarioId { get; set; } = null;
 
-        [Required]
+		public string? Ficheiro { get; set; }
+
+		[Required]
         public string? Nome { get; set; }
 
         [Required]

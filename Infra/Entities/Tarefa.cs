@@ -9,7 +9,9 @@ namespace Infra.Entities
         [Required]
         public string? Nome { get; set; }
 
-        [Required]
+		public string? Ficheiro { get; set; }
+
+		[Required]
         public DateTime? DataAgendamento { get; set; } 
 
 		[Required]
