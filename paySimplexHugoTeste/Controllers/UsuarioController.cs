@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Infra.DTOs;
 using Infra.Entities;
 using Infra.Interfaces;
 using MeuUsadoAPI.Controllers;
@@ -24,7 +25,7 @@ namespace paySimplexHugoTeste.Controllers
 
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpPost("AddUsuario")]
-		public IActionResult AddUsuario([FromBody] Usuario usuario)
+		public IActionResult AddUsuario([FromBody] UsuarioDTO usuario)
 		{
 			try
 			{
@@ -32,7 +33,7 @@ namespace paySimplexHugoTeste.Controllers
 				{
 					Code = 1,
 					Message = "Usuario criado com sucesso",
-					Obj = _usuarioService.Insert(usuario)
+					Obj = _usuarioService.Insert(_mapper.Map<Usuario>(usuario))
 				};
 
 				return Ok(result);

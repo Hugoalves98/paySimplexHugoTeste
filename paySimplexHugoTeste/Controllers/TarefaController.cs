@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Infra.DTOs;
 using Infra.Entities;
 using Infra.Interfaces;
 using MeuUsadoAPI.Controllers;
@@ -24,7 +25,7 @@ namespace paySimplexHugoTeste.Controllers
 
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpPost("AddTarefa")]
-		public IActionResult AddTarefa([FromBody] Tarefa tarefa)
+		public IActionResult AddTarefa([FromBody] TarefaDTO tarefa)
 		{
 			try
 			{
@@ -32,7 +33,7 @@ namespace paySimplexHugoTeste.Controllers
 				{
 					Code = 1,
 					Message = "Tarefa criada com sucesso",
-					Obj = _tarefaService.Insert(tarefa)
+					Obj = _tarefaService.Insert(_mapper.Map<Tarefa>(tarefa))
 				};
 
 				return Ok(result);

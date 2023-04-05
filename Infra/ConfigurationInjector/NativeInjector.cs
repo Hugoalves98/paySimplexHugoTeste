@@ -12,9 +12,11 @@ namespace Infra.ConfigurationInjector
         {
             //Services
             services.AddTransient<ITarefaService, TarefaService>();
+            services.AddTransient<IUsuarioService, UsuarioService>();
 
             //Repositories
             services.AddScoped<ITarefaRepository, TarefaRepository>();         
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();         
         }
     }
 }
