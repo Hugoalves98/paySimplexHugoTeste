@@ -10,7 +10,10 @@ namespace Infra.Entities
         public string? Nome { get; set; }
 
         [Required]
-        public DateTime? DataAgendamento { get; set; } = default(DateTime?);
+        public DateTime? DataAgendamento { get; set; } 
+
+		[Required]
+		public DateTime? DataFinalizacao { get; set; } 
 
         [Required]
         public string DuracaoEstimada { get; set; } = string.Empty;

@@ -24,10 +24,14 @@ namespace Infra.Services
 				if (tarefaVerification == null)
 					throw new Exception("Tarefa inexistente");
 
-				if(tarefaVerification.EstadoTarefa != tarefa.EstadoTarefa)
+				if (!string.IsNullOrWhiteSpace(tarefa.Nome) && tarefa.Nome != tarefaVerification.Nome)
+					tarefaVerification.Nome = tarefa.Nome;
+
+				if (tarefaVerification.EstadoTarefa != tarefa.EstadoTarefa)
 					tarefaVerification.EstadoTarefa = tarefa.EstadoTarefa;
 
-
+				if (tarefa.DuracaoEstimada != tarefaVerification.DuracaoEstimada)
+					tarefaVerification.DuracaoEstimada = tarefa.DuracaoEstimada;
 
 				Update(tarefaVerification);
 
