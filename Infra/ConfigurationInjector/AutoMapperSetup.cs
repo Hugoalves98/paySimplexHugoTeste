@@ -11,12 +11,14 @@ namespace Infra.ConfigurationInjector
             #region DTOToDomain
 
             CreateMap<TarefaDTO, Tarefa>();
+            CreateMap<UsuarioDTO, Usuario>();
 
             #endregion
 
             #region DomainToDTO
 
             CreateMap<Tarefa, TarefaDTO>();
+            CreateMap<Usuario, UsuarioDTO>();
 
             #endregion
         }
