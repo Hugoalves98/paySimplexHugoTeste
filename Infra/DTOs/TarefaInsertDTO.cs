@@ -21,11 +21,10 @@ namespace Infra.DTOs
         [Required]
         public DateTime? DataAgendamento { get; set; } 
 
-		[Required]
-		public DateTime? DataFinalizacao { get; set; }
+		public DateTime? DataFinalizada { get; set; }
 
 		[Required]
-        public string DuracaoEstimada { get; set; } = string.Empty;
+        public double DuracaoEstimada { get; set; } 
 
         [Required]
         public EstadoTarefa EstadoTarefa { get; set; } = 0;

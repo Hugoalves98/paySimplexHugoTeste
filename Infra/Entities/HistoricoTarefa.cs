@@ -4,12 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Infra.Entities
 {
-    public class Tarefa : BaseEntity
+    public class HistoricoTarefa : BaseEntity
     {
-        [Required]
-        public string? Nome { get; set; }
+		[Required]
+		[ForeignKey("TarefaId")]
+		public int TarefaId { get; set; }
 
-		public string? Ficheiro { get; set; }
+		public virtual Tarefa? Tarefa { get; set; }
 
 		[Required]
         public DateTime? DataAgendamento { get; set; } 
@@ -20,12 +21,12 @@ namespace Infra.Entities
         public double DuracaoEstimada { get; set; } 
 
         [Required]
-        public EstadoTarefa EstadoTarefa { get; set; } = 0;
+        public EstadoTarefa EstadoTarefa { get; set; }
 
 		[Required]
 		[ForeignKey("UsuarioId")]
-        public int UsuarioId { get; set; }
+		public int UsuarioId { get; set; }
 
-        public virtual Usuario? Usuario { get; set;}
-    }
+		public virtual Usuario? Usuario { get; set; }
+	}
 }
