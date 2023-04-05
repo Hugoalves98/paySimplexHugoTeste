@@ -11,7 +11,7 @@ namespace Infra.ConfigurationInjector
             #region DTOToDomain
 
             CreateMap<TarefaDTO, Tarefa>();
-            CreateMap<UsuarioDTO, Usuario>();
+			CreateMap<UsuarioDTO, Usuario>().ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email.ToLower()));
 
             #endregion
 
