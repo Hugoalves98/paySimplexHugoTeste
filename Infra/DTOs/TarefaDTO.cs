@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infra.Entities
+namespace Infra.DTOs
 {
-    public class TarefaDTO : BaseEntity
+    public class TarefaDTO
     {
         [Required]
         public string? Nome { get; set; }

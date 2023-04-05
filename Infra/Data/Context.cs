@@ -10,6 +10,6 @@ namespace Infra.Data
 
         }
 
-		public DbSet<Tarefa> Tarefas { get; set; }
+		public DbSet<TarefaDTO> Tarefas { get; set; }
 	}
 }

@@ -24,7 +24,7 @@ namespace paySimplexHugoTeste.Controllers
 
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpPost("AddTarefa")]
-		public IActionResult AddTarefa([FromBody] Tarefa tarefa)
+		public IActionResult AddTarefa([FromBody] TarefaDTO tarefa)
 		{
 			try
 			{
