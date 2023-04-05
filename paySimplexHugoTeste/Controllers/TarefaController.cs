@@ -68,11 +68,11 @@ namespace paySimplexHugoTeste.Controllers
 		/// <summary>Atualizar uma tarefa</summary>
 		/// <remarks>
 		/// 
-		///    Necessário passar o ID da tarefa
-		///    Necessário passar o mesmo nome da tarefa, a menos que deseje mudá-lo
-		///    Necessário passar o ID do usuário responsável, a menos que deseje mudá-lo
-		///    Necessário manter a primeira DATA de agendamento da tarefa, a menos que deseje mudá-la
-		///    Necessário passar null a data de finalizada, exemplo: "dataFinalizada": null
+		///    Necessário passar o ID da tarefa, pegar na resposta de quando criou-a ou no banco
+		///    Necessário passar o ID do usuário responsável, a menos que deseje mudá-lo, pegar na resposta de quando criou-o ou no banco
+		///    Necessário passar o mesmo nome da tarefa, a menos que deseje mudá-lo, pegar no resposta de quando criou-o ou no banco
+		///    Necessário passar a duração estimada, a menos que deseje mudá-la, pegar na resposta de quando criou-a ou no banco
+		///    Necessário manter a primeira DATA de agendamento da tarefa, a menos que deseje mudá-la,, pegar no resposta de quando criou-a ou no banco
 		///    A data de finalizada será criada automaticamente quando for enviado o número 2 no EstadoTarefa
 		///    
 		/// </remarks>
