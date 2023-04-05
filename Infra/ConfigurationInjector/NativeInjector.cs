@@ -13,6 +13,7 @@ namespace Infra.ConfigurationInjector
             //Services
             services.AddTransient<ITarefaService, TarefaService>();
             services.AddTransient<IUsuarioService, UsuarioService>();
+            services.AddTransient<IAzureBlobService, AzureBlobService>();
 
             //Repositories
             services.AddScoped<ITarefaRepository, TarefaRepository>();         

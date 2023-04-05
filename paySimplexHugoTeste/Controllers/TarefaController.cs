@@ -23,6 +23,8 @@ namespace paySimplexHugoTeste.Controllers
 			_tarefaService = tarefaService;
 		}
 
+		/// <summary>Controller para gerenciar CadastroTarefa</summary>
+		// Para adicionar um ficheiro precisa transformar a imagem em base64, segue o site https://www.base64decode.org/
 		[ProducesResponseType(typeof(Result), StatusCodes.Status200OK)]
 		[HttpPost("AddTarefa")]
 		public IActionResult AddTarefa(TarefaInsertDTO tarefa)
@@ -33,7 +35,7 @@ namespace paySimplexHugoTeste.Controllers
 				{
 					Code = 1,
 					Message = "Tarefa criada com sucesso",
-					Obj = _tarefaService.Insert(_mapper.Map<Tarefa>(tarefa))
+					Obj = _tarefaService.AddTarefa(_mapper.Map<Tarefa>(tarefa))
 				};
 
 				return Ok(result);
