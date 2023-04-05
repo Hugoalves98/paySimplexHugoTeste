@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Infra.DTOs;
-using Infra.Entities;
 
 namespace Infra.ConfigurationInjector
 {
@@ -10,9 +8,6 @@ namespace Infra.ConfigurationInjector
         {
             #region DTOToDomain
 
-            CreateMap<EmployeeDTO, Employee>();
-            CreateMap<ProjectDTO, Project>();
-            CreateMap<MeetingDTO, Meeting>();
             //CreateMap<AddressDTO, Address>();
             //CreateMap<RateUserDTO, RateUser>();
             //CreateMap<RecoverPasswordDTO, RecoverPassword>();
@@ -22,9 +17,6 @@ namespace Infra.ConfigurationInjector
 
             #region DomainToDTO
 
-            CreateMap<Employee, EmployeeDTO>();
-            CreateMap<Project, ProjectDTO>();
-            CreateMap<Meeting, MeetingDTO>();
             //CreateMap<Address, AddressDTO>();
             //CreateMap<RateUser, RateUserDTO>();
             //CreateMap<RecoverPassword, RecoverPasswordDTO>();

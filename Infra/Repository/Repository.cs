@@ -36,7 +36,7 @@ namespace Infra.Repositories
             }
         }
 
-        public TEntity? Find(Expression<Func<TEntity, bool>> where)//(Expression<Func<TEntity, bool>>)Faz com que para chamar o metodo tenha que usar uma Expressão Lambda
+        public TEntity? Buscar(Expression<Func<TEntity, bool>> where)//(Expression<Func<TEntity, bool>>)Faz com que para chamar o metodo tenha que usar uma Expressão Lambda
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Infra.Repositories
             }
         }
 
-        public TEntity? FindById(int id)
+        public TEntity? BuscarPorId(int id)
         {
             try
             {
@@ -60,13 +60,13 @@ namespace Infra.Repositories
             }
         }
 
-        public List<TEntity>? FindAll(Expression<Func<TEntity, bool>> where) => DbSet.AsNoTracking().Where(where).ToList();
+        public List<TEntity>? BuscarTodos(Expression<Func<TEntity, bool>> where) => DbSet.AsNoTracking().Where(where).ToList();
        
         public TEntity Create(TEntity entity)
         {
             if (entity is BaseEntity)
             {
-                (entity as BaseEntity).CreationDate = DateTime.Now;
+                (entity as BaseEntity).DataCriacao = DateTime.Now;
             }
 
             DbSet.Add(entity);
@@ -82,7 +82,7 @@ namespace Infra.Repositories
             {
                 if (model is BaseEntity)
                 {
-                    (model as BaseEntity).UpdateDate = DateTime.Now;
+                    (model as BaseEntity).DataAtualizacao = DateTime.Now;
                 }
 
                 var entry = _context.Entry(model);
@@ -135,7 +135,7 @@ namespace Infra.Repositories
             {
                 if (model is BaseEntity)
                 {
-                    (model as BaseEntity).IsDeleted = true;
+                    (model as BaseEntity).Deletado = true;
 
                     var _entry = _context.Entry(model);
 

@@ -11,14 +11,10 @@ namespace Infra.ConfigurationInjector
         public static void RegisterService(this IServiceCollection services)
         {
             //Services
-            services.AddTransient<IEmployeeService, EmployeeService>();
-            services.AddTransient<IProjectService, ProjectService>();
-            services.AddTransient<IMeetingService, MeetingService>();
+            services.AddTransient<ITarefaService, TarefaService>();
 
             //Repositories
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();        
-            services.AddScoped<IProjectRepository, ProjectRepository>();        
-            services.AddScoped<IMeetingRepository, MeetingRepository>();        
+            services.AddScoped<ITarefaRepository, TarefaRepository>();         
         }
     }
 }

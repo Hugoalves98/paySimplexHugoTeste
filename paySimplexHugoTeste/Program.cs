@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<Context>(options => options.UseSqlServer("workstation id=paySimplexTeste.mssql.somee.com;packet size=4096;user id=HugAlves_SQLLogin_1;pwd=xvxidoropo;data source=paySimplexTeste.mssql.somee.com;persist security info=False;initial catalog=paySimplexTeste").EnableSensitiveDataLogging());
+builder.Services.AddDbContext<Context>(options => options.UseSqlServer("workstation id=paySimplexTeste.mssql.somee.com;packet size=4096;user id=HugAlves_SQLLogin_1;pwd=xvxidoropo;data source=paySimplexTeste.mssql.somee.com;persist security info=False;initial catalog=paySimplexTeste;TrustServerCertificate=True").EnableSensitiveDataLogging());
 builder.Services.RegisterService();
 builder.Services.AddAutoMapper(typeof(AutoMapperSetup));
 

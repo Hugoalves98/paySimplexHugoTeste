@@ -12,11 +12,11 @@ namespace Infra.Interfaces
 
 		bool Update(TEntity model);
 
-        TEntity? Find(Expression<Func<TEntity, bool>> where);
+        TEntity? Buscar(Expression<Func<TEntity, bool>> where);
 
-        List<TEntity>? FindAll(Expression<Func<TEntity, bool>> where);
+        List<TEntity>? BuscarTodos(Expression<Func<TEntity, bool>> where);
 
-        TEntity? FindById(int id);
+        TEntity? BuscarPorId(int id);
 
 		void Remove(TEntity obj);
 
